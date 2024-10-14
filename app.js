@@ -802,7 +802,6 @@ const products = [
   }
 ];
 
-console.log(products);
 for (let i = 0; i < products.length; i++) {
   div.innerHTML += `
     <div class="card">
@@ -818,5 +817,5 @@ for (let i = 0; i < products.length; i++) {
 }
 
 function addToCart(){
-  prompt("Server Busy, Enter your query")
+  prompt("Server Busy, Enter your Query")
 }
