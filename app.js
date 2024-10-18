@@ -802,20 +802,30 @@ const products = [
   }
 ];
 
-for (let i = 0; i < products.length; i++) {
-  div.innerHTML += `
-    <div class="card">
-           <h1> Id :${products[i].id}</h1> 
-           <h1> Name :${products[i].name}</h1> 
-           <h1> Price :${products[i].price}</h1> 
-           <h1> Category :${products[i].category}</h1> 
-           <h1> InStock :${products[i].inStock}</h1> 
-           <h1> Rating :${products[i].rating}</h1> 
-    <button id="btn" onclick="addToCart()"><B>Add To Cart</B></button>
-        </div>
-    `
-}
+function render (){
+  div.innerHTML ="";
 
-function addToCart(){
-  prompt("Server Busy, Enter your Query")
+  products.map(function(items){
+    div.innerHTML += `
+         <div class="card">
+               <h1> Id :${items.id}</h1> 
+                <h1> Name :${items.name}</h1> 
+                <h1> Price :${items.price}</h1> 
+                <h1> Category :${items.category}</h1> 
+                <h1> InStock :${items.inStock}</h1> 
+                <h1> Rating :${items.rating}</h1> 
+         <button id="btn" onclick="addToCart()"><B>Add To Cart</B></button>
+             </div>
+         `
+  })
+  
+}
+render();
+
+
+
+function Filteredvalue(button){
+  const selectedCategory = button.innerHTML;
+  const filteredProducts =products.filter(items => items.category ===selectedCategory);
+  render(filteredProducts)
 }

@@ -4,6 +4,7 @@
 body{
     box-sizing: border-box;
     background-color: aliceblue;
+    
 }
 #h1{
     text-align: center;
@@ -31,4 +32,12 @@ body{
     padding: 10px;
     font-family: "Kanit", sans-serif;
 
+}
+.btn-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
 }
