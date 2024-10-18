@@ -1,4 +1,3 @@
-const div = document.querySelector(".container");
 
 const products = [
   {
@@ -802,30 +801,34 @@ const products = [
   }
 ];
 
-function render (){
+const div = document.querySelector(".container");
+
+function renderItems (products){
   div.innerHTML ="";
 
   products.map(function(items){
-    div.innerHTML += `
+   return div.innerHTML += `
          <div class="card">
-               <h1> Id :${items.id}</h1> 
-                <h1> Name :${items.name}</h1> 
-                <h1> Price :${items.price}</h1> 
-                <h1> Category :${items.category}</h1> 
-                <h1> InStock :${items.inStock}</h1> 
-                <h1> Rating :${items.rating}</h1> 
+               <h2> Id :${items.id}</h2> 
+                <h2> Name :${items.name}</h2> 
+                <h2> Category :${items.category}</h2> 
+                <h3> Price :${items.price}</h3 > 
+                <h3> InStock :${items.inStock}</h3> 
+                <h3> Rating :${items.rating}</h3> 
          <button id="btn" onclick="addToCart()"><B>Add To Cart</B></button>
              </div>
          `
   })
   
 }
-render();
+renderItems(products)
 
 
 
 function Filteredvalue(button){
   const selectedCategory = button.innerHTML;
-  const filteredProducts =products.filter(items => items.category ===selectedCategory);
-  render(filteredProducts)
+  const filterProducts =products.filter(items => items.category ===selectedCategory)
+  console.log(filterProducts);
+  
+  renderItems(filterProducts)
 }
